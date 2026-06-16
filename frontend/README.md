@@ -18,10 +18,15 @@
 
 src/
 ├── shared/        # утилиты, типы, api-клиент, store, ui-примитивы
+
 ├── entities/      # product, category, cart
+
 ├── features/      # add-to-cart, place-order, remove-from-cart, search-header
+
 ├── widgets/       # header, footer, banner, top-sales, product-catalog
+
 ├── pages/         # home, catalog, product, cart, about, contacts, not-found
+
 └── app/           # провайдеры, роутер, глобальные стили
 
 ## Функциональность
