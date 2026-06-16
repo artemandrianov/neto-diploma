@@ -6,11 +6,11 @@
 
 ## Стек
 
-- React 18 + TypeScript
-- Redux Toolkit (корзина)
-- React Router v6
+- React 19 + TypeScript
+- Redux Toolkit
+- React Router
 - Vite
-- CSS (свои стили, без UI-библиотек)
+- CSS
 
 ## Архитектура
 
