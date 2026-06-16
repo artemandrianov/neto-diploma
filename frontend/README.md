@@ -17,6 +17,7 @@
 Проект построен по методологии Feature-Sliced Design:
 
 src/
+
 ├── shared/        # утилиты, типы, api-клиент, store, ui-примитивы
 
 ├── entities/      # product, category, cart
