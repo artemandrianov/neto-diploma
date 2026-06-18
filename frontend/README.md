@@ -17,18 +17,17 @@
 Проект построен по методологии Feature-Sliced Design:
 
 src/
-
-├── shared/        # утилиты, типы, api-клиент, store, ui-примитивы
-
+├── shared/        # утилиты, типы, api-клиент, store, ui-примитивы (Button, Card, Table, Input, Checkbox, FormGroup, Alert, Loader, ErrorMessage, Layout), глобальные стили (переменные, reset) и переиспользуемые CSS-утилиты
 ├── entities/      # product, category, cart
-
 ├── features/      # add-to-cart, place-order, remove-from-cart, search-header
-
 ├── widgets/       # header, footer, banner, top-sales, product-catalog
-
 ├── pages/         # home, catalog, product, cart, about, contacts, not-found
+└── app/           # провайдеры, роутер
 
-└── app/           # провайдеры, роутер, глобальные стили
+Стили организованы как CSS Modules рядом с каждым компонентом (Component.module.css) —
+каждый слайс инкапсулирует собственную верстку. Глобальными остаются только переменные,
+reset и базовые теги (shared/styles/globals.css) и переиспользуемые layout-утилиты
+(shared/styles/utilities.module.css).
 
 ## Функциональность
 
