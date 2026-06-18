@@ -2,26 +2,28 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import { NAV_LINKS, ROUTES } from '../../../shared/config'
 import { useAppSelector } from '../../../shared/store'
 import { HeaderSearch } from '../../../features/search-header'
+import utils from '../../../shared/styles/utilities.module.css'
+import styles from './Header.module.css'
 
 export function Header() {
   const navigate = useNavigate()
   const cartCount = useAppSelector((s) => s.cart.items.length)
 
   return (
-    <header className="container">
-      <div className="row">
-        <div className="col">
-          <nav className="navbar navbar-expand-sm navbar-light bg-light">
-            <NavLink className="navbar-brand" to={ROUTES.HOME}>
+    <header className={utils.container}>
+      <div className={utils.row}>
+        <div className={utils.col}>
+          <nav className={styles.navbar}>
+            <NavLink className={styles.brand} to={ROUTES.HOME}>
               <img src="/img/header-logo.png" alt="Bosa Noga" />
             </NavLink>
-            <div className="collapse navbar-collapse" id="navbarMain">
-              <ul className="navbar-nav mr-auto">
+            <div className={styles.collapse} id="navbarMain">
+              <ul className={styles.nav}>
                 {NAV_LINKS.map(({ to, label }) => (
-                  <li key={to} className="nav-item">
+                  <li key={to} className={styles.navItem}>
                     <NavLink
                       className={({ isActive }) =>
-                        `nav-link${isActive ? ' active' : ''}`
+                        `${styles.navLink} ${isActive ? styles.navLinkActive : ''}`
                       }
                       to={to}
                       end={to === ROUTES.HOME}
@@ -33,21 +35,18 @@ export function Header() {
               </ul>
 
               <div>
-                <div className="header-controls-pics">
+                <div className={styles.controlsPics}>
                   <HeaderSearch />
                   <div
-                    className="header-controls-pic header-controls-cart"
+                    className={styles.cartIcon}
                     onClick={() => navigate(ROUTES.CART)}
                     role="button"
                     aria-label="Корзина"
                     style={{ cursor: 'pointer' }}
                   >
                     {cartCount > 0 && (
-                      <div className="header-controls-cart-full">
-                        {cartCount}
-                      </div>
+                      <div className={styles.cartBadge}>{cartCount}</div>
                     )}
-                    <div className="header-controls-cart-menu" />
                   </div>
                 </div>
               </div>

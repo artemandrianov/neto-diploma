@@ -1,4 +1,5 @@
 import type { Product } from '../../../shared/types'
+import { Table } from '../../../shared/ui/table'
 
 interface Props {
   product: Product
@@ -15,7 +16,7 @@ const DETAILS: { label: string; key: keyof Product }[] = [
 
 export function ProductDetails({ product }: Props) {
   return (
-    <table className="table table-bordered">
+    <Table bordered>
       <tbody>
         {DETAILS.map(({ label, key }) => (
           <tr key={key}>
@@ -24,6 +25,6 @@ export function ProductDetails({ product }: Props) {
           </tr>
         ))}
       </tbody>
-    </table>
+    </Table>
   )
 }

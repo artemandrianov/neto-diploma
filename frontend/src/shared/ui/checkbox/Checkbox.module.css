@@ -1,0 +1,28 @@
+.wrap {
+  display: block;
+  min-height: 1.5rem;
+  padding-left: 1.5em;
+  margin-bottom: 0.125rem;
+}
+.input {
+  width: 1em;
+  height: 1em;
+  margin-top: 0.25em;
+  margin-left: -1.5em;
+  vertical-align: top;
+  appearance: none;
+  border: 1px solid var(--color-border);
+  border-radius: 0.25em;
+  background-color: var(--color-white);
+  transition:
+    background-color var(--transition),
+    border-color var(--transition);
+}
+.input:checked {
+  background-color: #007bff;
+  border-color: #007bff;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+}
+.label {
+  cursor: pointer;
+}

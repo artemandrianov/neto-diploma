@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { useAppSelector, useAppDispatch } from '../../../shared/store'
-import { clearCart } from '../../../shared/store/cart'
+import { clearCart, removeFromCart } from '../../../shared/store/cart'
 import { CartTable } from '../../../entities/cart'
 import { OrderForm } from '../../../features/place-order'
 import { Banner } from '../../../widgets/banner'
 import { MainContent } from '../../../shared/ui/layout'
-import { removeFromCart } from '../../../shared/store/cart'
+import { Alert } from '../../../shared/ui/alert'
+import utils from '../../../shared/styles/utilities.module.css'
+import styles from './CartPage.module.css'
 
 export function CartPage() {
   const items = useAppSelector((s) => s.cart.items)
@@ -21,15 +23,17 @@ export function CartPage() {
     <MainContent>
       <Banner />
 
-      <section className="cart">
-        <h2 className="text-center">Корзина</h2>
+      <section className={styles.section}>
+        <h2 className={styles.title}>Корзина</h2>
 
         {ordered ? (
-          <div className="alert alert-success text-center" role="alert">
+          <Alert variant="success" className={utils.textCenter}>
             Заказ успешно оформлен! Спасибо за покупку.
-          </div>
+          </Alert>
         ) : items.length === 0 ? (
-          <p className="text-center text-muted py-4">Корзина пуста</p>
+          <p className={`${utils.textCenter} ${utils.textMuted} ${utils.py4}`}>
+            Корзина пуста
+          </p>
         ) : (
           <CartTable
             items={items}

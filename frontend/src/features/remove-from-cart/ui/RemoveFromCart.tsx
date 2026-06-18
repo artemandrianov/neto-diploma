@@ -1,5 +1,6 @@
 import { useAppDispatch } from '../../../shared/store'
 import { removeFromCart } from '../../../shared/store/cart'
+import { Button } from '../../../shared/ui/button'
 
 interface Props {
   id: number
@@ -9,12 +10,12 @@ interface Props {
 export function RemoveFromCart({ id, size }: Props) {
   const dispatch = useAppDispatch()
   return (
-    <button
-      type="button"
-      className="btn btn-outline-danger btn-sm"
+    <Button
+      variant="outline-danger"
+      size="sm"
       onClick={() => dispatch(removeFromCart({ id, size }))}
     >
       Удалить
-    </button>
+    </Button>
   )
 }

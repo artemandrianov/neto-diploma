@@ -1,0 +1,41 @@
+.banner {
+  position: relative;
+}
+
+.banner img {
+  width: 100%;
+  display: block;
+}
+
+.header {
+  position: absolute;
+  z-index: 5;
+  right: 0;
+  top: 42px;
+  height: 98px;
+  width: 487px;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 98px;
+  text-align: center;
+  color: #ffffff;
+  background: linear-gradient(
+    270deg,
+    rgba(161, 179, 191, 0.8) 72.59%,
+    rgba(161, 179, 191, 0) 98.05%
+  );
+}
+
+@media (max-width: 767.98px) {
+  .header {
+    font-size: 1.5rem;
+    width: auto;
+    right: 0;
+    left: 0;
+    text-align: center;
+    top: 10px;
+    height: auto;
+    line-height: 1.2;
+    padding: 0.5rem;
+  }
+}

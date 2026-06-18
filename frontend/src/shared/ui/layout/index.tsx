@@ -1,15 +1,20 @@
 import { type ReactNode } from 'react'
+import utils from '../../styles/utilities.module.css'
 
 export function PageLayout({ children }: { children: ReactNode }) {
-  return <div className="min-vh-100 d-flex flex-column">{children}</div>
+  return (
+    <div className={`${utils.minVh100} ${utils.dFlex} ${utils.flexColumn}`}>
+      {children}
+    </div>
+  )
 }
 
 export function MainContent({ children }: { children: ReactNode }) {
   return (
-    <main className="flex-grow-1">
-      <div className="container">
-        <div className="row">
-          <div className="col">{children}</div>
+    <main className={utils.flexGrow1}>
+      <div className={utils.container}>
+        <div className={utils.row}>
+          <div className={utils.col}>{children}</div>
         </div>
       </div>
     </main>

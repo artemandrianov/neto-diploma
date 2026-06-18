@@ -3,6 +3,9 @@ import { CategoryTabs } from '../../../entities/category'
 import { ProductGrid } from '../../../entities/product'
 import { Loader } from '../../../shared/ui/loader'
 import { ErrorMessage } from '../../../shared/ui/error-message'
+import { Input } from '../../../shared/ui/input'
+import { Button } from '../../../shared/ui/button'
+import styles from './ProductCatalog.module.css'
 
 interface Props {
   showSearch?: boolean
@@ -31,16 +34,13 @@ export function ProductCatalog({
   } = useProductCatalog(initialQuery)
 
   return (
-    <section className="catalog">
-      <h2 className="text-center">Каталог</h2>
+    <section className={styles.section}>
+      <h2 className={styles.title}>Каталог</h2>
 
       {showSearch && (
-        <form
-          className="catalog-search-form form-inline"
-          onSubmit={submitSearch}
-        >
-          <input
-            className="form-control"
+        <form className={styles.searchForm} onSubmit={submitSearch}>
+          <Input
+            className={styles.searchInput}
             placeholder="Поиск"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
@@ -67,16 +67,16 @@ export function ProductCatalog({
       {itemsStatus === 'idle' && <ProductGrid products={items} />}
 
       {itemsStatus === 'idle' && hasMore && (
-        <div className="text-center mt-3">
+        <div className={styles.loadMore}>
           {moreLoading && <Loader size="sm" />}
-          <button
-            className="btn btn-outline-primary"
+          <Button
+            variant="outline-primary"
             onClick={loadMore}
             disabled={moreLoading}
             type="button"
           >
             Загрузить ещё
-          </button>
+          </Button>
         </div>
       )}
     </section>

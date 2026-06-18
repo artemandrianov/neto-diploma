@@ -1,17 +1,18 @@
 import { Banner } from '../../../widgets/banner'
 import { MainContent } from '../../../shared/ui/layout'
+import styles from './AboutPage.module.css'
 
 export function AboutPage() {
   return (
     <MainContent>
       <Banner />
-      <section className="top-sales">
-        <h2 className="text-center">О магазине</h2>
+      <section className={styles.section}>
+        <h2 className={styles.title}>О магазине</h2>
         <p>
           В Интернете можно встретить немало магазинов, предлагающих аксессуары.
           Но именно к нам хочется возвращаться снова и снова.
         </p>
-        <p className="h4 text-center">Мы предлагаем вам особые условия:</p>
+        <p className={styles.lead}>Мы предлагаем вам особые условия:</p>
         <ol>
           <li>
             Индивидуальный подход специалиста. Когда поступает новая коллекция

@@ -1,0 +1,55 @@
+.wrap {
+  text-align: center;
+}
+
+.size {
+  display: inline-block;
+  padding: 0 10px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 15px;
+  transition:
+    background var(--transition),
+    color var(--transition);
+}
+
+.size:hover {
+  border-color: var(--color-primary);
+}
+
+.sizeSelected {
+  background: var(--color-primary);
+  border-radius: 15px;
+  color: #fff;
+}
+
+.counter {
+  display: inline-flex;
+  vertical-align: middle;
+  padding-left: var(--spacing-sm);
+}
+
+.counter > * {
+  border-radius: 0;
+}
+.counter > *:first-child {
+  border-radius: var(--border-radius) 0 0 var(--border-radius);
+}
+.counter > *:last-child {
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.counterBtn {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+.counterValue {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+}

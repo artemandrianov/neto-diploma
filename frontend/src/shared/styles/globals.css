@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=cyrillic-ext');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&subset=cyrillic-ext');
+
+/* CSS Variables */
+:root {
+  --color-primary: #727e86;
+  --color-primary-hover: #5a646b;
+  --color-danger: #dc3545;
+  --color-success: #28a745;
+  --color-secondary: #6c757d;
+  --color-dark: #333333;
+  --color-light: #f8f9fa;
+  --color-white: #ffffff;
+  --color-border: #dee2e6;
+  --color-accent: #ff65a5;
+
+  --border-radius: 0.375rem;
+  --border-radius-sm: 0.25rem;
+  --border-radius-lg: 50px;
+
+  --shadow-sm: 0px 0px 10px #d4e4e6;
+
+  --transition: 0.2s ease-in-out;
+
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 3rem;
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family:
+    'Roboto',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-dark);
+  background-color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+a:hover,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+a:hover {
+  cursor: pointer;
+}
+
+section {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+h2,
+.h2 {
+  margin-bottom: 1.5em;
+  margin-top: 2em;
+}

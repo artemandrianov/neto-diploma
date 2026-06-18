@@ -4,6 +4,8 @@ import { useAppDispatch } from '../../../shared/store'
 import { addToCart } from '../../../shared/store/cart'
 import { useNavigate } from 'react-router-dom'
 import { ROUTES } from '../../../shared/config'
+import { Button } from '../../../shared/ui/button'
+import styles from './AddToCartForm.module.css'
 
 interface Props {
   product: Product
@@ -40,13 +42,13 @@ export function AddToCartForm({ product }: Props) {
   }
 
   return (
-    <div className="text-center">
+    <div className={styles.wrap}>
       <p>
         Размеры в наличии:{' '}
         {availableSizes.map((s) => (
           <span
             key={s.size}
-            className={`catalog-item-size${selectedSize === s.size ? ' selected' : ''}`}
+            className={`${styles.size} ${selectedSize === s.size ? styles.sizeSelected : ''}`}
             onClick={() => setSelectedSize(s.size)}
             role="button"
           >
@@ -56,32 +58,38 @@ export function AddToCartForm({ product }: Props) {
       </p>
       <p>
         Количество:{' '}
-        <span className="btn-group btn-group-sm pl-2">
-          <button
-            className="btn btn-secondary"
+        <span className={styles.counter}>
+          <Button
+            variant="secondary"
+            size="sm"
+            className={styles.counterBtn}
             onClick={decrement}
             type="button"
           >
             −
-          </button>
-          <span className="btn btn-outline-primary">{count}</span>
-          <button
-            className="btn btn-secondary"
+          </Button>
+          <span className={styles.counterValue}>{count}</span>
+          <Button
+            variant="secondary"
+            size="sm"
+            className={styles.counterBtn}
             onClick={increment}
             type="button"
           >
             +
-          </button>
+          </Button>
         </span>
       </p>
-      <button
-        className="btn btn-danger btn-block btn-lg"
+      <Button
+        variant="danger"
+        size="lg"
+        fullWidth
         disabled={!canAddToCart}
         onClick={handleSubmit}
         type="button"
       >
         В корзину
-      </button>
+      </Button>
     </div>
   )
 }

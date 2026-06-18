@@ -1,4 +1,5 @@
 import { type ButtonHTMLAttributes, type ReactNode } from 'react'
+import styles from './Button.module.css'
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?:
@@ -14,6 +15,15 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode
 }
 
+const VARIANT_CLASS: Record<NonNullable<Props['variant']>, keyof typeof styles> = {
+  primary: 'primary',
+  secondary: 'secondary',
+  danger: 'danger',
+  'outline-primary': 'outlinePrimary',
+  'outline-secondary': 'outlineSecondary',
+  'outline-danger': 'outlineDanger',
+}
+
 export function Button({
   variant = 'primary',
   size = 'md',
@@ -24,12 +34,12 @@ export function Button({
   className = '',
   ...rest
 }: Props) {
-  const sizeClass = size === 'sm' ? 'btn-sm' : size === 'lg' ? 'btn-lg' : ''
+  const sizeClass = size === 'sm' ? styles.sm : size === 'lg' ? styles.lg : ''
   const cls = [
-    'btn',
-    `btn-${variant}`,
+    styles.btn,
+    styles[VARIANT_CLASS[variant]],
     sizeClass,
-    fullWidth ? 'btn-block' : '',
+    fullWidth ? styles.block : '',
     className,
   ]
     .filter(Boolean)
@@ -39,7 +49,7 @@ export function Button({
     <button className={cls} disabled={loading || disabled} {...rest}>
       {loading && (
         <span
-          className="spinner-border spinner-border-sm me-2"
+          className={`${styles.spinner} ${styles.spinnerSm}`}
           role="status"
           aria-hidden="true"
         />

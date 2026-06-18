@@ -1,4 +1,6 @@
 import { useHeaderSearch } from '../model'
+import { Input } from '../../../shared/ui/input'
+import styles from './HeaderSearch.module.css'
 
 export function HeaderSearch() {
   const { open, query, setQuery, inputRef, handleIconClick, handleSubmit } =
@@ -8,19 +10,19 @@ export function HeaderSearch() {
     <>
       <div
         data-id="search-expander"
-        className="header-controls-pic header-controls-search"
+        className={styles.icon}
         onClick={handleIconClick}
         role="button"
         aria-label="Поиск"
       />
       <form
         data-id="search-form"
-        className={`header-controls-search-form form-inline${open ? '' : ' invisible'}`}
+        className={`${styles.form} ${open ? '' : styles.formHidden}`}
         onSubmit={handleSubmit}
       >
-        <input
+        <Input
           ref={inputRef}
-          className="form-control"
+          className={styles.input}
           placeholder="Поиск"
           value={query}
           onChange={(e) => setQuery(e.target.value)}

@@ -1,3 +1,7 @@
+import { Alert } from '../alert'
+import { Button } from '../button'
+import styles from './ErrorMessage.module.css'
+
 interface Props {
   message?: string
   onRetry?: () => void
@@ -10,20 +14,18 @@ export function ErrorMessage({
   className = '',
 }: Props) {
   return (
-    <div
-      className={`alert alert-danger d-flex justify-content-between align-items-center ${className}`}
-      role="alert"
-    >
+    <Alert variant="danger" className={`${styles.row} ${className}`.trim()}>
       <span>{message}</span>
       {onRetry && (
-        <button
-          type="button"
-          className="btn btn-outline-danger btn-sm ms-3"
+        <Button
+          variant="outline-danger"
+          size="sm"
+          className={styles.retry}
           onClick={onRetry}
         >
           Повторить
-        </button>
+        </Button>
       )}
-    </div>
+    </Alert>
   )
 }

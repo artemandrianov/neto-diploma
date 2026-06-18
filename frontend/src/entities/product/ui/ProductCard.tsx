@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom'
 import type { ProductPreview } from '../../../shared/types'
 import { formatPrice } from '../../../shared/lib/utils'
 import { getProductRoute } from '../../../shared/config'
+import { Card, CardBody, CardImg, CardText } from '../../../shared/ui/card'
+import buttonStyles from '../../../shared/ui/button/Button.module.css'
+import styles from './ProductCard.module.css'
 
 interface Props {
   product: ProductPreview
@@ -9,22 +12,18 @@ interface Props {
 
 export function ProductCard({ product }: Props) {
   return (
-    <div className="card catalog-item-card">
-      <img
-        src={product.images[0]}
-        className="card-img-top img-fluid"
-        alt={product.title}
-      />
-      <div className="card-body">
-        <p className="card-text">{product.title}</p>
-        <p className="card-text">{formatPrice(product.price)}</p>
+    <Card className={styles.card}>
+      <CardImg src={product.images[0]} alt={product.title} />
+      <CardBody>
+        <CardText>{product.title}</CardText>
+        <CardText>{formatPrice(product.price)}</CardText>
         <Link
           to={getProductRoute(product.id)}
-          className="btn btn-outline-primary"
+          className={`${buttonStyles.btn} ${buttonStyles.outlinePrimary}`}
         >
           Заказать
         </Link>
-      </div>
-    </div>
+      </CardBody>
+    </Card>
   )
 }

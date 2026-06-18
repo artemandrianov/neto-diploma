@@ -1,4 +1,5 @@
 import type { Category } from '../../../shared/types'
+import styles from './CategoryTabs.module.css'
 
 interface Props {
   categories: Category[]
@@ -8,10 +9,10 @@ interface Props {
 
 export function CategoryTabs({ categories, selected, onSelect }: Props) {
   return (
-    <ul className="catalog-categories nav justify-content-center">
-      <li className="nav-item">
+    <ul className={styles.tabs}>
+      <li className={styles.item}>
         <a
-          className={`nav-link${selected === 0 ? ' active' : ''}`}
+          className={`${styles.link} ${selected === 0 ? styles.linkActive : ''}`}
           href="#"
           onClick={(e) => {
             e.preventDefault()
@@ -22,9 +23,9 @@ export function CategoryTabs({ categories, selected, onSelect }: Props) {
         </a>
       </li>
       {categories.map((cat) => (
-        <li key={cat.id} className="nav-item">
+        <li key={cat.id} className={styles.item}>
           <a
-            className={`nav-link${selected === cat.id ? ' active' : ''}`}
+            className={`${styles.link} ${selected === cat.id ? styles.linkActive : ''}`}
             href="#"
             onClick={(e) => {
               e.preventDefault()

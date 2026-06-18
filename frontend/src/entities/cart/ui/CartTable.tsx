@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom'
 import type { CartItem } from '../../../shared/types'
 import { formatPrice } from '../../../shared/lib/utils'
 import { getProductRoute } from '../../../shared/config'
+import { Table } from '../../../shared/ui/table'
+import { Button } from '../../../shared/ui/button'
+import styles from './CartTable.module.css'
 
 interface Props {
   items: CartItem[]
@@ -12,7 +15,7 @@ export function CartTable({ items, onRemove }: Props) {
   const total = items.reduce((sum, i) => sum + i.price * i.count, 0)
 
   return (
-    <table className="table table-bordered">
+    <Table bordered>
       <thead>
         <tr>
           <th>#</th>
@@ -36,24 +39,24 @@ export function CartTable({ items, onRemove }: Props) {
             <td>{formatPrice(item.price)}</td>
             <td>{formatPrice(item.price * item.count)}</td>
             <td>
-              <button
-                type="button"
-                className="btn btn-outline-danger btn-sm"
+              <Button
+                variant="outline-danger"
+                size="sm"
                 onClick={() => onRemove(item.id, item.size)}
               >
                 Удалить
-              </button>
+              </Button>
             </td>
           </tr>
         ))}
         <tr>
-          <td colSpan={5} className="text-right font-weight-bold">
+          <td colSpan={5} className={styles.totalLabel}>
             Общая стоимость
           </td>
-          <td className="font-weight-bold">{formatPrice(total)}</td>
+          <td className={styles.totalValue}>{formatPrice(total)}</td>
           <td />
         </tr>
       </tbody>
-    </table>
+    </Table>
   )
 }

@@ -1,0 +1,12 @@
+.section {
+  padding-bottom: 2em;
+}
+
+.title {
+  text-align: center;
+}
+
+.card {
+  max-width: 30rem;
+  margin: 0 auto;
+}

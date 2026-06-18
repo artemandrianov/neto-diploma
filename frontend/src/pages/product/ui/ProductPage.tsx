@@ -7,6 +7,8 @@ import { Banner } from '../../../widgets/banner'
 import { Loader } from '../../../shared/ui/loader'
 import { ErrorMessage } from '../../../shared/ui/error-message'
 import { MainContent } from '../../../shared/ui/layout'
+import utils from '../../../shared/styles/utilities.module.css'
+import styles from './ProductPage.module.css'
 
 export function ProductPage() {
   const { id } = useParams<{ id: string }>()
@@ -15,7 +17,7 @@ export function ProductPage() {
   return (
     <MainContent>
       <Banner />
-      <section className="catalog-item">
+      <section className={styles.section}>
         {(state.status === 'idle' || state.status === 'loading') && <Loader />}
 
         {state.status === 'error' && (
@@ -31,16 +33,16 @@ export function ProductPage() {
             const product = state.data
             return (
               <>
-                <h2 className="text-center">{product.title}</h2>
-                <div className="row">
-                  <div className="col-5">
+                <h2 className={styles.title}>{product.title}</h2>
+                <div className={utils.row}>
+                  <div className={utils.col5}>
                     <img
                       src={product.images[0]}
-                      className="img-fluid"
+                      className={utils.imgFluid}
                       alt={product.title}
                     />
                   </div>
-                  <div className="col-7">
+                  <div className={utils.col7}>
                     <ProductDetails product={product} />
                     <AddToCartForm product={product} />
                   </div>

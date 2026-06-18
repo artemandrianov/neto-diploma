@@ -1,5 +1,6 @@
 import type { ProductPreview } from '../../../shared/types'
 import { ProductCard } from './ProductCard'
+import utils from '../../../shared/styles/utilities.module.css'
 
 interface Props {
   products: ProductPreview[]
@@ -7,12 +8,16 @@ interface Props {
 
 export function ProductGrid({ products }: Props) {
   if (products.length === 0) {
-    return <p className="text-center text-muted py-4">Товары не найдены</p>
+    return (
+      <p className={`${utils.textCenter} ${utils.textMuted} ${utils.py4}`}>
+        Товары не найдены
+      </p>
+    )
   }
   return (
-    <div className="row">
+    <div className={utils.row}>
       {products.map((product) => (
-        <div key={product.id} className="col-4">
+        <div key={product.id} className={utils.col4}>
           <ProductCard product={product} />
         </div>
       ))}
